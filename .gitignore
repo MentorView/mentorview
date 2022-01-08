@@ -6,3 +6,6 @@ build/
 
 ### intelliJ
 .idea/
+
+### node
+node_modules/
