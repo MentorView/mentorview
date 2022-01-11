@@ -15,30 +15,35 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @NoArgsConstructor
-public class User extends BaseTimeEntity {
+public abstract class User extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(length = 20, nullable = false)
     private String name;
 
     @Column(nullable = false)
     private String email;
+
+    @Column
+    private String picture;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
 
     @Builder
-    public User(String name, String email, Role role) {
+    public User(String name, String email, String picture, Role role) {
         this.name = name;
         this.email = email;
+        this.picture = picture;
         this.role = role;
     }
 
-    public User update(String name, Role role) {
+    public User update(String name, String picture, Role role) {
         this.name = name;
+        this.picture = picture;
         this.role = role;
 
         return this;
@@ -47,4 +52,6 @@ public class User extends BaseTimeEntity {
     public String getRoleKey() {
         return this.role.getKey();
     }
+
+
 }
