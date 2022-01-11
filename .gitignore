@@ -4,6 +4,9 @@
 # Ignore Gradle build output directory
 build/
 
+# application config
+application-oauth.yml
+
 ### intelliJ
 .idea/
 
