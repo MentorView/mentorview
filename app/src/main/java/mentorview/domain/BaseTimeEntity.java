@@ -33,4 +33,5 @@ public abstract class BaseTimeEntity {
     @Column
     private String updatedBy;
 
+    public abstract Object update(String name, String picture);
 }
